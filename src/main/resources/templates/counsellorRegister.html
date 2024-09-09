@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Counselor Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="border border-primary">
+            <div class="card">
+                <div class="card-header bg-primary">Card Header</div>
+                <div class="card-body">
+                    <!-- Correct placement of the form element -->
+                    <form th:object="${counsellor}" method="post" th:action="@{/enroll}">
+                        <table class="table">
+                            <tr>
+                                <td>Name:</td>
+                                <td><input type="text" th:field="*{counsellorName}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Mobile:</td>
+                                <td><input type="text" th:field="*{mobile}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type="text" th:field="*{email}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Password:</td>
+                                <td><input type="password" th:field="*{password}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="card-footer bg-primary">Card Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

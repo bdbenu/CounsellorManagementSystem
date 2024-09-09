@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Counselor Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="border border-primary">
+            <div class="card">
+                <div class="card-header bg-primary">Counsellor Loging</div>
+                <div class="card-body">
+                    <!-- Correct placement of the form element -->
+                    <form th:object="${enquiry}" method="post" th:action="@{/addEnquiry}">
+                        <table class="table">
+                            <tr>
+                                <td> Name:</td>
+                                <td><input type="text" th:field="*{enqName}" class="form-control"/>
+                                <input type="hidden" th:field="*{enquiryId}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Mobile:</td>
+                                <td><input type="text" th:field="*{mobile}" class="form-control"/></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Class Mode:</td>
+                                <td><input type="text" th:field="*{classMode}" class="form-control"/></td>
+                            </tr>
+                            <tr>
+                                <td>Course:</td>
+                                <td><input type="text" th:field="*{course}" class="form-control"/></td>
+                            </tr>
+  <tr>
+                                <td>Status:</td>
+                                <td><input type="text" th:field="*{status}" class="form-control"/></td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td colspan="2"><button type="submit" class="btn btn-primary">Login</button></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="card-footer bg-primary">Card Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

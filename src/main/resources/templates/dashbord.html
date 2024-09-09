@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Counselor Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="border border-primary">
+            <div class="card">
+                <div class="card-header bg-primary">Counsellor Loging</div>
+                <div class="card-body">
+                    <!-- Correct placement of the form element -->
+                    <h1>Dashboard</h1>
+                    
+                  <table class="table table-bordered">
+      
+        <tbody>
+   
+            <tr th:each="dashboardInfo : ${dashboardInfo}">
+            
+            <td>Total Count</td><td th:text="${dashboardInfo.totalCount}"></td>
+           
+          
+           
+            </tr>
+            <tr> <td>Enroll Count</td><td th:text="${dashboardInfo.enrolleCount}"></td></tr>
+            <tr> <td>Open Count</td><td th:text="${dashboardInfo.openCount}"></td></tr>
+            <tr>  <td>Lost Count</td><td th:text="${dashboardInfo.lostCount}"></td></tr>
+        </tbody>
+    </table>
+                </div>
+                <div class="card-footer bg-primary">Card Footer</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

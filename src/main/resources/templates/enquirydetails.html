@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Counselor Registration</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">Enquiry Details</div>
+					<div class="panel-body">
+						<form th:action="@{/filterEnq}"
+							th:object="${viewEnqsFilterRequest}" method="POST">
+							<table>
+								<tr>
+									<td>Mode <select th:field="*{classMode}">
+											<option value="">-Select-</option>
+											<option value="Online">Online</option>
+											<option value="classroom">Class</option>
+									</select>
+									</td>
+
+
+									<td>Class Mode <select th:field="*{status}">
+											<option value="">-Select-</option>
+											<option value="O">Online</option>
+											<option value="C">Offline Class</option>
+											<option value="Microservice">Microservice</option>
+											<option value="Hibernate">Hibernate</option>
+											<option value="ReactJs">ReactJs</option>
+									</select>
+									</td>
+
+									
+
+									<td><input type="submit" value="Search"
+										class="button-primary"></td>
+								</tr>
+							</table>
+						</form>
+						<table class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Sl No</th>
+									<th>Name</th>
+									<th>Mobile</th>
+									<th>Course</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr th:each="enq,indexStart:${enquiries}">
+									<td th:text="${enq.enquiryId}"></td>
+									<td th:text="${enq.enqName}"></td>
+									<td th:text="${enq.mobile}"></td>
+									<td th:text="${enq.classMode}"></td>
+									<td th:text="${enq.course}"></td>
+									<td th:text="${enq.status}"></td>
+									<td><a th:href="@{'/editEnquiry?enquiryId='+${enq.enquiryId}}">edit</a></td>
+								</tr>
+									<tr th:if="${enquiries.size()==0}">
+								<td>No Record found</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="panel-footer">Card Footer</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
